@@ -55,6 +55,7 @@ class Gnupg2 < Formula
       --sbindir=#{bin}
       --enable-symcryptrun
       --disable-agent
+      --disable-nls # Due to https://github.com/Linuxbrew/homebrew-core/issues/311
       --with-agent-pgm=#{agent}/bin/gpg-agent
       --with-protect-tool-pgm=#{agent}/libexec/gpg-protect-tool
     ]
