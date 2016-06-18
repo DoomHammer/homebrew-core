@@ -4,7 +4,7 @@ class Perl < Formula
   url "http://www.cpan.org/src/5.0/perl-5.22.1.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.22.1.orig.tar.xz"
   sha256 "9e87317d693ce828095204be0d09af8d60b8785533fadea1a82b6f0e071e5c79"
-  revision 1
+  revision 2
 
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
@@ -35,6 +35,7 @@ class Perl < Formula
 
     args << "-Dusedtrace" if build.with? "dtrace"
     args << "-Dusedevel" if build.head?
+    args << "-Dlocincpth=#{HOMEBREW_PREFIX}/include" if OS.linux?
 
     system "./Configure", *args
     system "make"
